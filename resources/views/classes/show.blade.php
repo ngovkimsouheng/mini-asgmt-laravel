@@ -51,6 +51,17 @@
                         </p>
                         <p class="text-lg font-semibold text-slate-900">{{ $class->students->count() }} Students</p>
                     </div>
+                    <!-- Total Subjects Section -->
+                    <div class="border-l-4 border-green-500 pl-6">
+                        <p class="text-slate-600 text-sm font-semibold mb-2">
+                            <i class="fas fa-book text-green-600 mr-2"></i>
+                            Total Subjects
+                        </p>
+
+                        <p class="text-lg font-semibold text-slate-900">
+                            {{ $class->subjects->count() }} Subjects
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Divider -->

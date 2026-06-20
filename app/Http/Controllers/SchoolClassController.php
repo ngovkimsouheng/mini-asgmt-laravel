@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\SchoolClass;
-use Illuminate\Http\Request;
 use App\Models\Subject;
+use Illuminate\Http\Request;
+
 class SchoolClassController extends Controller
 {
     public function index()
     {
-        $classes = SchoolClass::with('students')->get();
+        // $classes = SchoolClass::withCount(['students', 'subjects'])->get();
+        $classes = SchoolClass::withCount(['students', 'subjects'])
+            ->paginate(5);
 
         return view('classes.index', compact('classes'));
     }
@@ -59,6 +62,11 @@ class SchoolClassController extends Controller
             ->with('success', 'School class updated successfully.');
     }
 
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class, 'class_id');
+    }
+
     public function destroy(SchoolClass $class)
     {
         $class->delete();
@@ -66,6 +74,4 @@ class SchoolClassController extends Controller
         return redirect()->route('classes.index')
             ->with('success', 'School class deleted successfully.');
     }
-
-   
 }
