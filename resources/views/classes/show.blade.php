@@ -131,40 +131,71 @@
             </div>
         @endif
         <!-- Subjects Section -->
-        <h3 class="text-xl font-bold mb-4">Add Subject to Class</h3>
+        <!-- Subjects Section -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mt-8">
 
-        <form action="{{ route('classes.add-subject', $class->id) }}" method="POST">
-            @csrf
-
-            <div class="flex gap-4">
-                <select name="subject_id" class="border rounded-lg px-4 py-2 w-full">
-
-                    <option value="">Select Subject</option>
-
-                    @foreach ($allSubjects as $subject)
-                        <option value="{{ $subject->id }}">
-                            {{ $subject->subject_name }}
-                        </option>
-                    @endforeach
-
-                </select>
-
-                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg">
-                    Add
-                </button>
+            <!-- Header -->
+            <div class="bg-slate-50 border-b border-slate-200 px-8 py-6">
+                <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-3">
+                    <i class="fas fa-book text-green-600"></i>
+                    Class Subjects
+                </h3>
             </div>
-        </form>
-        @if ($class->subjects->count())
-            <div class="mt-6">
-                <h4 class="font-bold mb-2">Subjects in this class:</h4>
 
-                @foreach ($class->subjects as $subject)
-                    <span class="inline-block bg-blue-100 px-3 py-1 rounded">
-                        {{ $subject->subject_name }}
-                    </span>
-                @endforeach
+            <div class="p-8">
+
+                <!-- Add Subject Form -->
+                <form action="{{ route('subjects.store') }}" method="POST" class="flex flex-col md:flex-row gap-3 mb-6">
+
+                    @csrf
+
+                    <input type="text" name="subject_name" placeholder="Enter subject name"
+                        class="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+
+                    <input type="hidden" name="class_id" value="{{ $class->id }}">
+
+                    <button type="submit"
+                        class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+
+                        <i class="fas fa-plus mr-2"></i>
+                        Add Subject
+                    </button>
+
+                </form>
+
+                <!-- Subjects List -->
+                @if ($class->subjects->count() > 0)
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+                        @foreach ($class->subjects as $subject)
+                            <a href="{{ route('subjects.show', $subject) }}"
+                                class="flex items-center gap-3 bg-slate-50 border border-slate-200 p-4 rounded-lg hover:bg-slate-100 transition">
+
+                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-book text-green-600"></i>
+                                </div>
+
+                                <div>
+                                    <p class="font-semibold text-slate-900">
+                                        {{ $subject->subject_name }}
+                                    </p>
+                                </div>
+
+                            </a>
+                        @endforeach
+
+                    </div>
+                @else
+                    <div class="text-center py-6">
+                        <i class="fas fa-book text-slate-300 text-3xl mb-2"></i>
+                        <p class="text-slate-500">No subjects added yet</p>
+                    </div>
+
+                @endif
+
             </div>
-        @endif
+        </div>
     </div>
 
 @endsection

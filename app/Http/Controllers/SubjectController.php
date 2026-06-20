@@ -17,9 +17,10 @@ class SubjectController extends Controller
 
     public function create()
     {
-        $classes = SchoolClass::all();
-
-        return view('subjects.create', compact('classes'));
+        Subject::create([
+            'subject_name' => $request->subject_name,
+            'class_id' => $class->id,
+        ]);
     }
 
     // public function store(Request $request)
@@ -41,13 +42,15 @@ class SubjectController extends Controller
     {
         $request->validate([
             'subject_name' => 'required|string|max:255',
+            'class_id' => 'required|exists:school_classes,id',
         ]);
 
         Subject::create([
             'subject_name' => $request->subject_name,
+            'class_id' => $request->class_id, // ✅ REQUIRED
         ]);
 
-        return redirect()->route('subjects.index');
+        return redirect()->back()->with('success', 'Subject created successfully');
     }
 
     public function show(Subject $subject)

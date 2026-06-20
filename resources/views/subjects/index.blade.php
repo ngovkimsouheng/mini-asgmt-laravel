@@ -11,10 +11,10 @@
                 <h1 class="text-4xl font-bold text-slate-900 mb-2">Subjects</h1>
                 <p class="text-slate-600">Manage and organize all your subjects</p>
             </div>
-            <a href="{{ route('subjects.create') }}" class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-semibold">
+            {{-- <a href="{{ route('subjects.create') }}" class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-semibold">
                 <i class="fas fa-plus"></i>
                 <span>Add New Subject</span>
-            </a>
+            </a> --}}
         </div>
 
         @if(session('success'))

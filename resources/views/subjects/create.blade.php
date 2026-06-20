@@ -1,4 +1,4 @@
-@extends('layout')
+{{-- @extends('layout')
 
 @section('title', 'Create Subject')
 
@@ -22,7 +22,7 @@
             <label>Assign to Class</label>
             <select name="class_id" required class="w-full border p-2 rounded">
                 <option value="">Select Class</option>
-                @foreach($classes as $class)
+                @foreach ($classes as $class)
                     <option value="{{ $class->id }}">
                         {{ $class->class_name }}
                     </option>
@@ -36,4 +36,4 @@
 
     </form>
 </div>
-@endsection
+@endsection --}}
