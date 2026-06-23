@@ -80,7 +80,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-800 text-slate-400 mt-20 py-8 border-t border-slate-700">
+    <footer class="bg-slate-800 text-slate-400  py-8 border-t border-slate-700">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-3 gap-8 mb-8">
                 <div>

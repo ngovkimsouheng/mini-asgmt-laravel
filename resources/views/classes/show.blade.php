@@ -38,7 +38,7 @@
                     <div class="border-l-4 border-green-500 pl-6">
                         <p class="text-slate-600 text-sm font-semibold mb-2">
                             <i class="fas fa-graduation-cap text-green-600 mr-2"></i>
-                            Grade/Level
+                            Year/Level
                         </p>
                         <p class="text-lg font-semibold text-slate-900">{{ $class->grade }}</p>
                     </div>

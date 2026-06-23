@@ -6,7 +6,7 @@
     <div>
         <!-- Header Section -->
         <div class="mb-8">
-            <div class="flex justify-between items-start mb-6">
+            <div class="flex justify-between items-start ">
                 <div>
                     <h1 class="text-4xl font-bold text-slate-900 mb-2">School Classes</h1>
                     <p class="text-slate-600">Manage and organize all your school classes</p>
@@ -38,7 +38,7 @@
                         <tr>
                             <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">ID</th>
                             <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Class Name</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Grade</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Year</th>
                             <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Total Students</th>
                             <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">
                                 Total Subjects
@@ -62,7 +62,7 @@
                                 <td class="px-6 py-4">
                                     <span
                                         class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
-                                        Grade {{ $class->grade }}
+                                        Year {{ $class->grade }}
                                     </span>
                                 </td>
                                 <td class="px-6 py-4">
